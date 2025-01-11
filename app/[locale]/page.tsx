@@ -5,12 +5,16 @@ import { Button } from '@/components/ui/button';
 import { getAuthSession } from '@/lib/auth';
 import { signOut, useSession } from 'next-auth/react';
 import {useTranslations} from 'next-intl';
+import { redirect } from 'next/navigation';
+
 
  
 const Home = () => {
   const session = useSession();
 
-  // if (session) redirect("/dashboard");
+  console.log('session', session)
+
+  if (session) redirect("/dashboard");
 
   return <HomePage />;
 };

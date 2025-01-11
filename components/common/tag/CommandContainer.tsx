@@ -28,8 +28,9 @@ interface Props {
   onDeleteActiveTag: (tagId: string) => void;
 }
 
+
 export const CommandContainer = ({
-  tags = [], // Default to an empty array if tags is undefined
+  tags = [],
   currentActiveTags,
   onSelectActiveTag,
   workspaceId,
@@ -37,7 +38,7 @@ export const CommandContainer = ({
   onDeleteActiveTag,
 }: Props) => {
   const [tab, setTab] = useState<"list" | "newTag" | "editTag">("list");
-  const [editedTagInfo, setEditedTagInfo] = useState<Tag | null>(null);
+  const [editedTagInfo, setEditedTagInfo] = useState<null | Tag>(null);
   const t = useTranslations("TASK.HEADER.TAG");
 
   const onEditTagInfoHandler = (tag: Tag) => {
@@ -45,18 +46,18 @@ export const CommandContainer = ({
     setTab("editTag");
   };
 
-  const onSetTab = (tab: "list" | "newTag" | "editTag") => {
-    setTab(tab);
-    if (tab === "list") {
-      setEditedTagInfo(null); // Reset edited tag info when switching back to list
-    }
+  const onSetTab = (newTab: "list" | "newTag" | "editTag") => {
+    setTab(newTab);
   };
 
   return (
     <Command className="w-[15rem]">
       {tab === "list" && (
         <>
-          <CommandInput className="text-xs" placeholder={t("FILTER")} />
+          <CommandInput
+            className="text-xs"
+            placeholder={tags.length ? t("FILTER") : t("NO_TAGS_PLACEHOLDER")}
+          />
           <CommandList>
             <CommandEmpty>{t("NOT_FOUND")}</CommandEmpty>
             {tags.length > 0 && (
