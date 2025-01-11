@@ -14,7 +14,7 @@ const Home = () => {
 
   console.log('session', session)
 
-  if (session) redirect("/dashboard");
+  // if (session) redirect("/dashboard");
 
   return <HomePage />;
 };
