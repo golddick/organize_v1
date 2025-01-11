@@ -19,7 +19,7 @@ import { ACTIVITY_PER_PAGE } from "./constants";
 export const domain =
   process.env.NODE_ENV !== "production"
     ? "http://localhost:3000"
-    : "http://localhost:3000";
+    : process.env.NEXT_PUBLIC_API_URL;
 
 export const getWorkspace = async (workspace_id: string, userId: string) => {
   const res = await fetch(
