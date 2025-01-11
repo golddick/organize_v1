@@ -20,7 +20,7 @@ export const CommandContainer = ({ users, mindMapId, workspaceId }: Props) => {
   return (
     <Command className="w-[15rem]">
       <>
-        <CommandInput className="text-xs" placeholder={t("PLACEHOLDER")} children />
+        <CommandInput className="text-xs" placeholder={t("PLACEHOLDER")}  />
         <CommandList>
           <CommandEmpty>{t("NOT_FOUND")}</CommandEmpty>
           <CommandGroup heading={t("HEADING")}>
