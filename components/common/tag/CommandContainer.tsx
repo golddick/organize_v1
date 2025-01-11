@@ -52,6 +52,8 @@ export const CommandContainer = ({
 
   return (
     <Command className="w-[15rem]">
+      <>
+    
       {tab === "list" && (
         <>
           <CommandInput
@@ -107,6 +109,7 @@ export const CommandContainer = ({
           onSelectActiveTag={onSelectActiveTag}
         />
       )}
+        </>
     </Command>
   );
 };
