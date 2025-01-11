@@ -2,7 +2,7 @@ import {
   ExtendedMessage,
   ExtendedTask,
   ExtendedMindMap,
-  ExtendedWorkspace,
+  ExtendedWorkspace, 
   HomeRecentActivity,
   SettingsWorkspace,
 } from "@/types/extended";

@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { navLinks } from "@/lib/constants";
 import { scrollToHash } from "@/lib/utils";
-import { Menu } from "lucide-react";
+import { Menu, MenuSquare } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -73,17 +73,24 @@ export const MobileNav = () => {
             </div>
           </ScrollArea>
           <div className="w-full flex flex-col gap-2">
+
+            <Link
+              href={"/dashboard"}
+              className={`${buttonVariants({ variant: "default" })}`}
+            >
+             <MenuSquare/>
+            </Link>
             <Link
               onClick={() => {
                 setOpen(false);
               }}
-              href={"/"}
+              href={"/sign-up"}
               className={`${buttonVariants({ variant: "default" })}`}
             >
               Sign up
             </Link>
             <Link
-              href={"/"}
+              href={"/sign-in"}
               onClick={() => {
                 setOpen(false);
               }}

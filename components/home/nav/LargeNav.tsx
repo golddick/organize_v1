@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { navLinks } from "@/lib/constants";
 import { scrollToHash } from "@/lib/utils";
+import { MenuSquare } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -66,6 +67,12 @@ export const LargeNav = () => {
 
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-4">
+        <Link
+              href={"/dashboard"}
+              className={`${buttonVariants({ variant: "default" })}`}
+            >
+             <MenuSquare/>
+            </Link>
           <Link
             className="border-b inline-block border-transparent hover:border-primary duration-200 transition-colors"
             href={"/sign-in"}
