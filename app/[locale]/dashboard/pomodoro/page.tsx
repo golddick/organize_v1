@@ -13,7 +13,6 @@ const Pomodoro = async () => {
 
   return (
     <>
-      <DashboardHeader/>
       <main className="flex flex-col gap-2 h-full items-center">
         <PomodoContainer pomodoroSettings={pomodoroSettings} />
       </main>

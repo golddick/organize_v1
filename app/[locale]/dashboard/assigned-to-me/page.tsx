@@ -10,9 +10,7 @@ const AssignedToMe = async () => {
 
   return (
     <>
-      <DashboardHeader>
-        <AddTaskShortcut userId={session.user.id} />
-      </DashboardHeader>
+      <DashboardHeader/>
       <main>
         <AssignedToMeContainer userId={session.user.id} />
       </main>

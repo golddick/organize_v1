@@ -1,9 +1,6 @@
-import { checkIfUserCompletedOnboarding } from '@/lib/checkIfUserCompletedOnboarding'
 import React from 'react'
 
-const page = async () => {
-    const session = await checkIfUserCompletedOnboarding('/dashboard/settings')
-   
+const page = () => {
   return (
     <div>page</div>
   )

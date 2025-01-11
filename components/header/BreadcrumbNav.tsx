@@ -3,6 +3,7 @@
 import { usePathname } from "@/i18n/routing";
 import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+
 import Link from "next/link";
 
 const availableRoutesWithTranslation = [
@@ -24,21 +25,11 @@ interface Props {
 
 export const BreadcrumbNav = ({ addManualRoutes, workspaceHref }: Props) => {
   const paths = usePathname();
-  // const pathNames = paths
-  //   .split("/")
-  //   .filter(
-  //     (path) => path !== "te" && path !== "workspace", path !== "project" && path.trim() !== ""
-  //   );
   const pathNames = paths
-  .split("/")
-  .filter(
-    (path) =>
-      path !== "te" &&
-      path !== "workspace" &&
-      // path !== "project" &&
-      path.trim() !== ""
-  );
-
+    .split("/")
+    .filter(
+      (path) => path !== "te" && path !== "workspace" && path.trim() !== ""
+    );
   const t = useTranslations("ROUTES");
 
   if (pathNames.length > 1) {
