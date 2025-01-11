@@ -15,7 +15,7 @@
     "@hello-pangea/dnd": "^17.0.0",
     "@hookform/resolvers": "^3.9.1",
     "@mantine/hooks": "^7.13.5",
-    "@prisma/client": "^5.21.1",
+    "@prisma/client": "^5.22.0",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-avatar": "^1.1.2",
