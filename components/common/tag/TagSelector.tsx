@@ -70,14 +70,15 @@ export const TagSelector = ({
           </div>
         )}
         {!isLoading && tags && (
-          <CommandContainer
-            tags={tags}
-            currentActiveTags={currentActiveTags}
-            onSelectActiveTag={onSelectActiveTag}
-            workspaceId={workspaceId}
-            onUpdateActiveTags={onUpdateActiveTags}
-            onDeleteActiveTag={onDeleteActiveTag}
-          />
+          // <CommandContainer
+          //   tags={tags}
+          //   currentActiveTags={currentActiveTags}
+          //   onSelectActiveTag={onSelectActiveTag}
+          //   workspaceId={workspaceId}
+          //   onUpdateActiveTags={onUpdateActiveTags}
+          //   onDeleteActiveTag={onDeleteActiveTag}
+          // />
+          <div>tag selector</div>
         )}
         {isError && (
           <div className="p-3 text-sm flex justify-center items-center flex-col gap-4">
