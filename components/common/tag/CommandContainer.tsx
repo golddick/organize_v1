@@ -29,7 +29,7 @@ interface Props {
 }
 
 export const CommandContainer = ({
-  tags,
+  tags = [], // Default to an empty array if tags is undefined
   currentActiveTags,
   onSelectActiveTag,
   workspaceId,
@@ -37,7 +37,7 @@ export const CommandContainer = ({
   onDeleteActiveTag,
 }: Props) => {
   const [tab, setTab] = useState<"list" | "newTag" | "editTag">("list");
-  const [editedTagInfo, setEditedTagInfo] = useState<null | Tag>(null);
+  const [editedTagInfo, setEditedTagInfo] = useState<Tag | null>(null);
   const t = useTranslations("TASK.HEADER.TAG");
 
   const onEditTagInfoHandler = (tag: Tag) => {
@@ -47,6 +47,9 @@ export const CommandContainer = ({
 
   const onSetTab = (tab: "list" | "newTag" | "editTag") => {
     setTab(tab);
+    if (tab === "list") {
+      setEditedTagInfo(null); // Reset edited tag info when switching back to list
+    }
   };
 
   return (
@@ -56,32 +59,27 @@ export const CommandContainer = ({
           <CommandInput className="text-xs" placeholder={t("FILTER")} />
           <CommandList>
             <CommandEmpty>{t("NOT_FOUND")}</CommandEmpty>
-            {tags && tags?.length > 0 && (
-              <>
-                <CommandGroup heading={t("TAGS_HEADING")}>
-                  {tags?.map((tag) => (
-                    <CommandTagItem
-                      key={tag.id}
-                      tag={tag}
-                      currentActiveTags={currentActiveTags}
-                      onSelectActiveTag={onSelectActiveTag}
-                      onEditTagInfo={onEditTagInfoHandler}
-                    />
-                  ))}
-                </CommandGroup>
-              </>
+            {tags.length > 0 && (
+              <CommandGroup heading={t("TAGS_HEADING")}>
+                {tags.map((tag) => (
+                  <CommandTagItem
+                    key={tag.id}
+                    tag={tag}
+                    currentActiveTags={currentActiveTags}
+                    onSelectActiveTag={onSelectActiveTag}
+                    onEditTagInfo={onEditTagInfoHandler}
+                  />
+                ))}
+              </CommandGroup>
             )}
-
             <CommandSeparator />
             <CommandGroup heading={t("NEW_HEADING")}>
               <CommandItem className="p-0">
                 <Button
-                  size={"sm"}
-                  variant={"ghost"}
+                  size="sm"
+                  variant="ghost"
                   className="w-full h-fit justify-start px-2 py-1.5 text-xs"
-                  onClick={() => {
-                    setTab("newTag");
-                  }}
+                  onClick={() => setTab("newTag")}
                 >
                   <Plus className="mr-1" size={16} />
                   {t("ADD_TAG")}
@@ -94,13 +92,13 @@ export const CommandContainer = ({
       {tab === "newTag" && (
         <CreateNewTagOrEditTag onSetTab={onSetTab} workspaceId={workspaceId} />
       )}
-      {tab === "editTag" && (
+      {tab === "editTag" && editedTagInfo && (
         <CreateNewTagOrEditTag
           edit
           workspaceId={workspaceId}
-          color={editedTagInfo?.color}
-          id={editedTagInfo?.id}
-          tagName={editedTagInfo?.name}
+          color={editedTagInfo.color}
+          id={editedTagInfo.id}
+          tagName={editedTagInfo.name}
           onSetTab={onSetTab}
           onUpdateActiveTags={onUpdateActiveTags}
           onDeleteActiveTag={onDeleteActiveTag}
