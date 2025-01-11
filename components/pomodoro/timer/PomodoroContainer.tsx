@@ -198,7 +198,7 @@ export const PomodoContainer = ({
                 onClick={handleTimer}
                 size={"icon"}
                 variant={"ghost"}
-                className="text-2xl uppercase h-11 w-11"
+                className="text-2xl uppercase h-10 w-10"
               >
                 <SkipForward />
               </Button>
