@@ -19,20 +19,22 @@ export const CommandContainer = ({ users, mindMapId, workspaceId }: Props) => {
   const t = useTranslations("MIND_MAP.ASSIGNMENT");
   return (
     <Command className="w-[15rem]">
-      <CommandInput className="text-xs" placeholder={t("PLACEHOLDER")} />
-      <CommandList>
-        <CommandEmpty>{t("NOT_FOUND")}</CommandEmpty>
-        <CommandGroup heading={t("HEADING")}>
-          {users?.map((user, i) => (
-            <CommandUser
-              key={user.user.id}
-              user={user}
-              mindMapId={mindMapId}
-              workspaceId={workspaceId}
-            />
-          ))}
-        </CommandGroup>
-      </CommandList>
+      <>
+        <CommandInput className="text-xs" placeholder={t("PLACEHOLDER")} children />
+        <CommandList>
+          <CommandEmpty>{t("NOT_FOUND")}</CommandEmpty>
+          <CommandGroup heading={t("HEADING")}>
+            {users?.map((user) => (
+              <CommandUser
+                key={user.user.id}
+                user={user}
+                mindMapId={mindMapId}
+                workspaceId={workspaceId}
+              />
+            ))}
+          </CommandGroup>
+        </CommandList>
+      </>
     </Command>
   );
 };
