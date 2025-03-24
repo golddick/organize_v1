@@ -22,7 +22,7 @@ export const HomePage = () => {
         <Header />
         <main>
           <TextSection
-            title="Your Productivity Partner"
+            title="Your ORGANIZE Partner"
             desc="Maximize your team’s efficiency with SuperProductive—an all-in-one workspace designed to consolidate your essential tools into one cohesive platform."
           />
 
@@ -42,7 +42,7 @@ export const HomePage = () => {
           <Section
             id="Roles"
             title="Roles & Permissions"
-            desc="SuperProductive’s role management system simplifies workspace oversight. Admins and owners can adjust user roles, manage account and workspace settings, and oversee permissions to ensure smooth collaboration."
+            desc="ORGANIZE role management system simplifies workspace oversight. Admins and owners can adjust user roles, manage account and workspace settings, and oversee permissions to ensure smooth collaboration."
             images={homePageRolesAndSettingsImgs}
           />
           <Section
@@ -54,7 +54,7 @@ export const HomePage = () => {
           />
           <TextSection
             title="The Future of Team Collaboration"
-            desc=" Effortlessly share projects and invite others to join with easy shareable links. SuperProductive enables instant project review and real-time chatting with team members from anywhere."
+            desc=" Effortlessly share projects and invite others to join with easy shareable links. ORGANIZE enables instant project review and real-time chatting with team members from anywhere."
           />
 
           <Section

@@ -66,6 +66,10 @@ export const navLinks = [
     title: "Pomodoro",
   },
   {
+    href: "Call",
+    title: "Call",
+  },
+  {
     href: "Roles",
     title: "Roles & Settings",
   },
